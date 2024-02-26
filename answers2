@@ -1,0 +1,132 @@
+
+
+question: Retrieve accidents with detailed weather conditions and road types:
+
+SELECT A.*, W.Description AS Weather_Description, R.Road_Type_Description
+FROM Accidents A
+JOIN Weather W ON A.Weather_Conditions = W.Weather_Code
+JOIN RoadTypes R ON A.Road_Type = R.Road_Type_Code;
+Explanation:
+
+This query retrieves accident data from the Accidents table.
+It joins the Weather table to get the description of weather conditions.
+It also joins the RoadTypes table to get the description of road types.
+question: Find accidents that occurred during foggy weather on major access roads:
+
+
+SELECT A.*
+FROM Accidents A
+JOIN Weather W ON A.Weather_Conditions = W.Weather_Code
+JOIN RoadTypes R ON A.Road_Type = R.Road_Type_Code
+WHERE W.Description = 'Fog' AND R.Road_Type_Description = 'Major Access Road';
+Explanation:
+
+This query retrieves accident data from the Accidents table.
+It joins the Weather table to filter accidents that occurred during foggy weather.
+It also joins the RoadTypes table to filter accidents that occurred on major access roads.
+question: Count the number of accidents for each weather condition:
+
+
+SELECT W.Description AS Weather_Description, COUNT(*) AS Accident_Count
+FROM Accidents A
+JOIN Weather W ON A.Weather_Conditions = W.Weather_Code
+GROUP BY W.Description;
+Explanation:
+
+This query counts the number of accidents for each weather condition.
+It joins the Weather table to get the description of weather conditions.
+Results are grouped by weather description.
+Query 4: Retrieve accidents that occurred on a road with no specified type:
+
+
+SELECT A.*
+FROM Accidents A
+LEFT JOIN RoadTypes R ON A.Road_Type = R.Road_Type_Code
+WHERE R.Road_Type_Description IS NULL;
+Explanation:
+
+This query retrieves accidents from the Accidents table.
+It performs a left join with the RoadTypes table to find accidents with road types that are not specified.
+Query 5: Find accidents that occurred during rainy weather on highways:
+
+
+SELECT A.*
+FROM Accidents A
+JOIN Weather W ON A.Weather_Conditions = W.Weather_Code
+JOIN RoadTypes R ON A.Road_Type = R.Road_Type_Code
+WHERE W.Description = 'Heavy rain' AND R.Road_Type_Description = 'Highway';
+Explanation:
+
+This query retrieves accidents from the Accidents table.
+It joins the Weather table to filter accidents that occurred during heavy rain.
+It also joins the RoadTypes table to filter accidents that occurred on highways.
+Query 6: Retrieve accidents that occurred during snowy weather or on link roads:
+
+
+SELECT A.*
+FROM Accidents A
+JOIN Weather W ON A.Weather_Conditions = W.Weather_Code
+JOIN RoadTypes R ON A.Road_Type = R.Road_Type_Code
+WHERE W.Description = 'Heavy snow' OR R.Road_Type_Description = 'Link road';
+Explanation:
+
+This query retrieves accidents from the Accidents table.
+It joins the Weather table to filter accidents that occurred during heavy snow.
+It also joins the RoadTypes table to filter accidents that occurred on link roads.
+
+quetion 7: Calculate the average number of casualties per accident for each road type:
+
+
+SELECT R.Road_Type_Description, AVG(A.Number_of_Casualties) AS Avg_Casualties_Per_Accident
+FROM Accidents A
+JOIN RoadTypes R ON A.Road_Type = R.Road_Type_Code
+GROUP BY R.Road_Type_Description;
+Explanation:
+This query calculates the average number of casualties per accident for each road type.
+It joins the RoadTypes table to get the description of road types.
+Results are grouped by road type description.
+
+question 8: Retrieve accidents that occurred during daylight on access lanes:
+
+
+SELECT A.*
+FROM Accidents A
+JOIN Weather W ON A.Weather_Conditions = W.Weather_Code
+JOIN RoadTypes R ON A.Road_Type = R.Road_Type_Code
+WHERE W.Description = 'Daylight' AND R.Road_Type_Description = 'Access lane';
+Explanation:
+
+This query retrieves accidents from the Accidents table.
+It joins the Weather table to filter accidents that occurred during daylight.
+It also joins the RoadTypes table to filter accidents that occurred on access lanes.
+question 9: Find accidents that occurred during thunderstorms or on mews:
+
+
+SELECT A.*
+FROM Accidents A
+JOIN Weather W ON A.Weather_Conditions = W.Weather_Code
+JOIN RoadTypes R ON A.Road_Type = R.Road_Type_Code
+WHERE W.Description = 'Thunder' OR R.Road_Type_Description = 'Mews';
+Explanation:
+
+This query retrieves accidents from the Accidents table.
+It joins the Weather table to filter accidents that occurred during thunderstorms.
+It also joins the RoadTypes table to filter accidents that occurred on mews.
+
+question0: Retrieve accidents that occurred on residential squares with more than 2 casualties:
+
+SELECT A.*
+FROM Accidents A
+JOIN RoadTypes R ON A.Road_Type = R.Road_Type_Code
+WHERE R.Road_Type_Description = 'Residential square' AND A.Number_of_Casualties > 2;
+Explanation:
+
+This query retrieves accidents from the Accidents table.
+It joins the RoadTypes table to filter accidents that occurred on residential squares.
+It also filters accidents with more than 2 casualties.
+
+
+
+Message ChatGPT…
+
+ChatGPT can make mistakes. Consider checking important information.
