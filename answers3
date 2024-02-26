@@ -1,7 +1,7 @@
 
 Query 1: Retrieve accidents with detailed weather conditions and road types, including the day of the week and time:
-sql
-Copy code
+
+
 SELECT A.*, 
        W.Description AS Weather_Description, 
        R.Road_Type_Description, 
@@ -18,8 +18,8 @@ It joins the Weather table to get the description of weather conditions.
 It also joins the RoadTypes table to get the description of road types.
 Additionally, it joins the TimeOfDay table to include the day of the week and time for each accident.
 Query 2: Find accidents that occurred during foggy weather or thunderstorms, with more than 3 casualties, and involved pedestrians:
-sql
-Copy code
+
+
 SELECT A.*, 
        W.Description AS Weather_Description
 FROM Accidents A
@@ -33,8 +33,8 @@ This query retrieves accident data from the Accidents table.
 It joins the Weather table to filter accidents that occurred during foggy weather or thunderstorms.
 It includes conditions to filter accidents with more than 3 casualties and involved pedestrians.
 Query 3: Calculate the average number of casualties per accident for each road type, along with the total number of accidents for each road type:
-sql
-Copy code
+
+
 SELECT R.Road_Type_Description, 
        COUNT(*) AS Total_Accidents, 
        AVG(A.Number_of_Casualties) AS Avg_Casualties_Per_Accident
@@ -47,8 +47,8 @@ This query calculates the average number of casualties per accident for each roa
 It also includes the total number of accidents for each road type.
 Results are grouped by road type description.
 Query 4: Retrieve accidents that occurred during rainy weather on weekdays with a speed limit of 30 mph and specify the road type:
-sql
-Copy code
+
+
 SELECT A.*, 
        W.Description AS Weather_Description, 
        T.Day_of_Week, 
@@ -69,8 +69,8 @@ It joins the Weather table to filter accidents that occurred during heavy rain.
 It also joins the TimeOfDay table to filter accidents that occurred on weekdays with a speed limit of 30 mph.
 Additionally, it joins the RoadTypes table to include the road type description for each accident.
 Query 5: Find accidents that occurred during daylight hours with a speed limit of 40 mph and involved more than 2 vehicles, and specify the road type:
-sql
-Copy code
+
+
 SELECT A.*, 
        T.Time, 
        T.Speed_limit, 
@@ -88,8 +88,8 @@ It joins the TimeOfDay table to filter accidents that occurred during daylight h
 It also joins the RoadTypes table to include the road type description for each accident.
 Conditions are added to filter accidents with a speed limit of 40 mph and involved more than 2 vehicles.
 Query 6: Calculate the total number of accidents for each weather condition, and include the average number of vehicles involved:
-sql
-Copy code
+
+
 SELECT W.Description AS Weather_Description, 
        COUNT(*) AS Total_Accidents, 
        AVG(A.Number_of_Vehicles) AS Avg_Vehicles
@@ -102,8 +102,8 @@ This query calculates the total number of accidents for each weather condition.
 It also includes the average number of vehicles involved in accidents for each weather condition.
 Results are grouped by weather description.
 Query 7: Retrieve accidents that occurred during foggy weather or thunderstorms on highways, and specify the number of casualties:
-sql
-Copy code
+
+
 SELECT A.*, 
        W.Description AS Weather_Description
 FROM Accidents A
@@ -119,8 +119,8 @@ It joins the Weather table to filter accidents that occurred during foggy weathe
 It also joins the RoadTypes table to filter accidents that occurred on highways.
 Additionally, it includes a condition to specify accidents with more than 1 casualty.
 Query 8: Find accidents that occurred on weekdays with a speed limit of 50 mph and involved pedestrians or cyclists:
-sql
-Copy code
+
+
 SELECT A.*, 
        T.Day_of_Week, 
        T.Time, 
@@ -136,8 +136,8 @@ This query retrieves accident data from the Accidents table.
 It joins the TimeOfDay table to filter accidents that occurred on weekdays.
 Conditions are added to filter accidents with a speed limit of 50 mph and involved pedestrians or cyclists.
 Query 9: Retrieve accidents that occurred during snowy weather or heavy rain on access lanes, and include the number of vehicles involved:
-sql
-Copy code
+
+
 SELECT A.*, 
        W.Description AS Weather_Description
 FROM Accidents A
@@ -153,8 +153,8 @@ It joins the Weather table to filter accidents that occurred during snowy weathe
 It also joins the RoadTypes table to filter accidents that occurred on access lanes.
 Conditions are added to specify accidents involving more than 1 vehicle.
 Query 10: Calculate the average number of casualties per accident for each weather condition, and include the total number of vehicles involved:
-sql
-Copy code
+
+
 SELECT W.Description AS Weather_Description, 
        COUNT(*) AS Total_Accidents, 
        AVG(A.Number_of_Casualties) AS Avg_Casualties_Per_Accident,
